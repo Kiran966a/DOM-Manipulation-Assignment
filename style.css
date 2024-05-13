@@ -5,7 +5,7 @@ body {
 .container {
     display: flex;
     justify-content: space-between;
-    overflow-y: auto; 
+    
     max-height: 100vh;
 }
 #main-heading{
@@ -87,6 +87,11 @@ button[type="submit"]:hover {
   font-weight: 400;
   font-style: normal;
 }
+#recordedInfo {
+    width: 50%; 
+    max-height: 400px;
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+}
 #recordedTable th, #recordedTable td {
     border: 1px solid #13ca84;
     padding: 8px;
@@ -95,3 +100,82 @@ button[type="submit"]:hover {
 #recordedTable th {
     background-color: #93f1dd;
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .form-container {
+        width: 90%; 
+        margin-bottom: 20px; 
+    }
+    #recordedInfo {
+        width: 90%;
+        margin-top: 20px; 
+    }
+}
+/* CSS for extra small screens (up to 576px) */
+@media only screen and (max-width: 576px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-container {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    #recordedInfo {
+        width: 90%;
+        margin-top: 20px;
+    }
+}
+
+/* CSS for small screens (577px to 768px) */
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-container {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+    #recordedInfo {
+        width: 70%;
+        margin-top: 20px;
+    }
+}
+
+/* CSS for medium screens (769px to 992px) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .form-container,
+    #recordedInfo {
+        width: 45%;
+        margin: 0;
+    }
+}
+
+/* CSS for limiting max-width of form inputs and adjusting table layout */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea,
+button[type="submit"] {
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+    #recordedTable {
+        overflow-x: auto;
+    }
+    #recordedTable th, #recordedTable td {
+        white-space: nowrap;
+    }
+}
+
